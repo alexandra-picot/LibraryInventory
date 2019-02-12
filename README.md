@@ -1,2 +1,2 @@
-# ConnectFour
-Little Connect Four game for a class project
+# CRUD
+Little CRUD application for a Python class project
