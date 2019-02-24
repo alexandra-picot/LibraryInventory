@@ -6,8 +6,6 @@ Include this Markdown file in the "Management" folder of your git repository and
 
 Based on your project design and prototype, make a list of the modules and tasks to do.
 
-Here an example:
-
 ### Architecture
 
 Will be compose of 3 parts:
@@ -18,6 +16,7 @@ Will be compose of 3 parts:
 
 ### Modules
 
+* Login
 * Add book
 * Edit book
 * Delete book
@@ -47,18 +46,37 @@ Go online and search for open source projects written in Python that do what you
 
 Complete this table one row for each project. You should list at least one project for each team member (i.e. you should research at four different projects if your team has four team members)
 
+| Project name with URL                            | List of Features                | Technology                                 | Requirements                       | Researcher           |
+|--------------------------------------------------|---------------------------------|--------------------------------------------|------------------------------------|----------------------|
+| [https://openlibrary.org]                        | Web based Book catalogue,       | Python, On top of Infogami wiki system     | Web app (all OS),                  | Vincent PICOT gr9185 |
+| (https://github.com/internetarchive/openlibrary) | Add/Edit book                   | (uses web.py framework), PostgreSQL        | list of Python dependencies below* |                      |
+|--------------------------------------------------|---------------------------------|--------------------------------------------|------------------------------------|----------------------|
+| [Project name 2](http://URL)                     | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions              | Access ID of student who found this |
 
-| Project name with URL        | List of Features                | Technology                                 | Requirements          | Researcher                                 |
-|------------------------------|---------------------------------|--------------------------------------------|-----------------------|--------------------------------------------|
-| [Project name 1](http://URL) | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions | Access ID of student who found this source |
-| [Project name 2](http://URL) | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions | Access ID of student who found this source |
-| [Project name 3](http://URL) | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions | Access ID of student who found this source |
-| [Project name 4](http://URL) | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions | Access ID of student who found this source |
-| [Project name 4](http://URL) | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions | Access ID of student who found this source |
-| [Project name 4](http://URL) | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions | Access ID of student who found this source |
-| [Project name 4](http://URL) | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions | Access ID of student who found this source |
-| [Project name 4](http://URL) | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions | Access ID of student who found this source |
-
+*List of all the dependencies for OpenLibrary:
+	Babel
+	PIL
+	argparse
+	beautifulsoup4
+	DBUtils
+	genshi
+	gunicorn
+	iptools
+	lxml
+	psycopg2
+	pymarc
+	pytest
+	python-memcached
+	pyyaml
+	simplejson
+	supervisor
+	web.py==0.33
+	pystatsd
+	eventer
+	Pygments
+	OL-GeoIP
+	mockcache
+-
 If you have difficulties finding projects similar to your project, search for different projects
 but related (similar games, CRUD projects for different business, data analysis for different data, etc... ). You can also search for projects written in another language that you master.
 
