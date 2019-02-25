@@ -46,12 +46,15 @@ Go online and search for open source projects written in Python that do what you
 
 Complete this table one row for each project. You should list at least one project for each team member (i.e. you should research at four different projects if your team has four team members)
 
-| Project name with URL                            | List of Features                | Technology                                 | Requirements                       | Researcher           |
-|--------------------------------------------------|---------------------------------|--------------------------------------------|------------------------------------|----------------------|
-| [https://openlibrary.org]                        | Web based Book catalogue,       | Python, On top of Infogami wiki system     | Web app (all OS),                  | Vincent PICOT gr9185 |
-| (https://github.com/internetarchive/openlibrary) | Add/Edit book                   | (uses web.py framework), PostgreSQL        | list of Python dependencies below* |                      |
-|--------------------------------------------------|---------------------------------|--------------------------------------------|------------------------------------|----------------------|
-| [Project name 2](http://URL)                     | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions              | Access ID of student who found this |
+| Project name with URL                               | List of Features                   | Technology                                   | Requirements                       | Researcher           |
+|-----------------------------------------------------|------------------------------------|----------------------------------------------|------------------------------------|----------------------|
+| [ https://openlibrary.org ]                         | Web based Book catalogue,          | Python, On top of Infogami wiki system       | Web app (all OS),                  | Vincent PICOT gr9185 |
+| (https://github.com/internetarchive/openlibrary)    | Add/Edit book                      | (uses web.py framework), PostgreSQL          | list of Python dependencies below* |                      |
+|-----------------------------------------------------|------------------------------------|----------------------------------------------|------------------------------------|----------------------|
+| [ Library Assistant ]                               | Adds, renews, and issues books,    | JavaFX, JFoenix Library, Apache Derby        | Desktop Application (all OS),      | Hafsa Hussain gh7070 |
+| (https://github.com/afsalashyana/Library-Assistant) | calculates fine, overdue reminders | (SARDB*), JavaMail API (email notifications) | JavaFX                             |                      |
+|-----------------------------------------------------|------------------------------------|----------------------------------------------|------------------------------------|----------------------|
+| [Project name 2](http://URL)                        | feature 1, feature 2, feature 3    | modules, architectures, frameworks, etc...   | OS, modules, versions              | Access ID of student |
 
 *List of all the dependencies for OpenLibrary:
 	Babel
@@ -76,6 +79,8 @@ Complete this table one row for each project. You should list at least one proje
 	Pygments
 	OL-GeoIP
 	mockcache
+-
+*SARDB: StandAlone Relation DataBase
 -
 If you have difficulties finding projects similar to your project, search for different projects
 but related (similar games, CRUD projects for different business, data analysis for different data, etc... ). You can also search for projects written in another language that you master.
