@@ -50,8 +50,7 @@ Complete this table one row for each project. You should list at least one proje
 |--------------------------------------------------|---------------------------------|--------------------------------------------|------------------------------------|----------------------|
 | [https://openlibrary.org]                        | Web based Book catalogue,       | Python, On top of Infogami wiki system     | Web app (all OS),                  | Vincent PICOT gr9185 |
 | (https://github.com/internetarchive/openlibrary) | Add/Edit book                   | (uses web.py framework), PostgreSQL        | list of Python dependencies below* |                      |
-|--------------------------------------------------|---------------------------------|--------------------------------------------|------------------------------------|----------------------|
-| [Project name 2](http://URL)                     | feature 1, feature 2, feature 3 | modules, architectures, frameworks, etc... | OS, modules, versions              | Access ID of student who found this |
+| https://pypi.org/project/django-product-catalog/ | Add/Remove/Update products and display them on a web frontend UI | Python and Django web framework | Django and Pillow frameworks | Haris Rovcanin fs7356 |
 
 *List of all the dependencies for OpenLibrary:
 	Babel
