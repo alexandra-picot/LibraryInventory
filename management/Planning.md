@@ -24,13 +24,13 @@ Will be compose of 3 parts:
 
 ### Tasks
 
-* Try Django and Tastypie to make a basic API
+* Try Django to create backend
 * Try to interact between Python (and Django/Tastypie) with SQL database
 * Try to call the basic Python API on the front-end
 * Design the SQL database (tables, relationships, ...)
-* Development of the API
+* Development of the back-end
 * Development of the front-end
-* Testing (of API and front-end)
+* Testing (of backend and front-end)
 * Extra-feature, interact with external API (openlibrary.org) for example to retrieve all the information from one book with just the ISBN
 
 
