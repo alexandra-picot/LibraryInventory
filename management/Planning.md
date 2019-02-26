@@ -25,8 +25,8 @@ Will be compose of 3 parts:
 ### Tasks
 
 * Try Django to create backend
-* Try to interact between Python (and Django/Tastypie) with SQL database
-* Try to call the basic Python API on the front-end
+* Try to interact between Python (and Django) with SQL database
+* Try to link the basic Python back-end on the front-end
 * Design the SQL database (tables, relationships, ...)
 * Development of the back-end
 * Development of the front-end
