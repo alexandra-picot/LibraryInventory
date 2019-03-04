@@ -1,12 +1,12 @@
 CREATE TABLE `books` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`isbn_10` int(10) NOT NULL UNIQUE,
-	`isbn_13` int(13) UNIQUE,
+	`isbn_10` char(20) NOT NULL UNIQUE,
+	`isbn_13` char(20) UNIQUE,
 	`title` char(255) NOT NULL,
 	`description` TEXT NOT NULL,
-	`language` char(255) NOT NULL,
-	`release_date` DATETIME NOT NULL,
-	`genre_id` char(255) NOT NULL,
+	`language` char(100) NOT NULL,
+	`release_date` DATE NOT NULL,
+	`genre_id` char(50) NOT NULL,
 	`editor_id` int NOT NULL,
 	`price_new` int NOT NULL,
 	`price_used` int NOT NULL,
@@ -15,8 +15,8 @@ CREATE TABLE `books` (
 
 CREATE TABLE `authors` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`first_name` char(255) NOT NULL,
-	`last_name` char(255) NOT NULL,
+	`first_name` char(50) NOT NULL,
+	`last_name` char(50) NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -27,13 +27,13 @@ CREATE TABLE `book_authors` (
 );
 
 CREATE TABLE `genres` (
-	`id` char(255) NOT NULL,
+	`id` char(50) NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `editors` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`name` char(255) NOT NULL,
+	`name` char(100) NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
