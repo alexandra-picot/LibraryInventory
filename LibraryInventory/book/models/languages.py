@@ -6,3 +6,6 @@ class Language(models.Model):
 
     class Meta:
         db_table = 'languages'
+
+    def __str__(self):
+        return self.id
