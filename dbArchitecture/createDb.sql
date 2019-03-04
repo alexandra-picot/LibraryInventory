@@ -45,9 +45,16 @@ CREATE TABLE `transactions` (
 	PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `books` ADD CONSTRAINT `books_fk0` FOREIGN KEY (`genre_id`) REFERENCES `genres`(`id`);
+CREATE TABLE `languages` (
+	`id` char(100) NOT NULL,
+	PRIMARY KEY (`id`)
+);
 
-ALTER TABLE `books` ADD CONSTRAINT `books_fk1` FOREIGN KEY (`editor_id`) REFERENCES `editors`(`id`);
+ALTER TABLE `books` ADD CONSTRAINT `books_fk0` FOREIGN KEY (`language`) REFERENCES `languages`(`id`);
+
+ALTER TABLE `books` ADD CONSTRAINT `books_fk1` FOREIGN KEY (`genre_id`) REFERENCES `genres`(`id`);
+
+ALTER TABLE `books` ADD CONSTRAINT `books_fk2` FOREIGN KEY (`editor_id`) REFERENCES `editors`(`id`);
 
 ALTER TABLE `book_authors` ADD CONSTRAINT `book_authors_fk0` FOREIGN KEY (`author_id`) REFERENCES `authors`(`id`);
 
