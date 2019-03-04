@@ -8,6 +8,8 @@ CREATE TABLE `books` (
 	`release_date` DATETIME NOT NULL,
 	`genre_id` char(255) NOT NULL,
 	`editor_id` int NOT NULL,
+	`price_new` int NOT NULL,
+	`price_used` int NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -38,6 +40,7 @@ CREATE TABLE `editors` (
 CREATE TABLE `transactions` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`quantity` int NOT NULL,
+	`book_state` char(1) NOT NULL,
 	`book_id` int NOT NULL,
 	PRIMARY KEY (`id`)
 );
