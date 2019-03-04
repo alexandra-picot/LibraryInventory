@@ -11,6 +11,8 @@ How to install:
   
   - Install Django: `pip install django`
   
+  - Install mysqlclient: `pip install mysqlclient`
+  
   - Go into the 'testProject' folder and launch the command: `python manage.py runserver`
   
   - Go to your webbrowser and go to 127.0.0.1:8000/polls
