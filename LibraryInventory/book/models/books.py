@@ -1,5 +1,5 @@
 from django.db import models
-from book.models.editors import Editor
+from book.models.publishers import Publisher
 from book.models.genres import Genre
 from book.models.authors import Author
 from book.models.languages import Language
@@ -17,7 +17,7 @@ class Book(models.Model):
     language = models.ForeignKey(Language, on_delete=models.PROTECT)
     release_date = models.DateTimeField()
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT)
-    editor = models.ForeignKey(Editor, on_delete=models.PROTECT)
+    publisher = models.ForeignKey(Publisher, on_delete=models.PROTECT)
     price_new = models.IntegerField()
     price_used = models.IntegerField(null=True)
     authors = models.ManyToManyField(Author)

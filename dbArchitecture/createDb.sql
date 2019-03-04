@@ -7,7 +7,7 @@ CREATE TABLE `books` (
 	`language` char(100) NOT NULL,
 	`release_date` DATE NOT NULL,
 	`genre_id` char(50) NOT NULL,
-	`editor_id` int NOT NULL,
+	`publisher_id` int NOT NULL,
 	`price_new` int NOT NULL,
 	`price_used` int NOT NULL,
 	PRIMARY KEY (`id`)
@@ -31,7 +31,7 @@ CREATE TABLE `genres` (
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `editors` (
+CREATE TABLE `publishers` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`name` char(100) NOT NULL,
 	PRIMARY KEY (`id`)
@@ -54,7 +54,7 @@ ALTER TABLE `books` ADD CONSTRAINT `books_fk0` FOREIGN KEY (`language`) REFERENC
 
 ALTER TABLE `books` ADD CONSTRAINT `books_fk1` FOREIGN KEY (`genre_id`) REFERENCES `genres`(`id`);
 
-ALTER TABLE `books` ADD CONSTRAINT `books_fk2` FOREIGN KEY (`editor_id`) REFERENCES `editors`(`id`);
+ALTER TABLE `books` ADD CONSTRAINT `books_fk2` FOREIGN KEY (`publisher_id`) REFERENCES `publishers`(`id`);
 
 ALTER TABLE `book_authors` ADD CONSTRAINT `book_authors_fk0` FOREIGN KEY (`author_id`) REFERENCES `authors`(`id`);
 
