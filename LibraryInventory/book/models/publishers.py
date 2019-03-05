@@ -6,3 +6,6 @@ class Publisher(models.Model):
 
     class Meta:
         db_table = 'publishers'
+
+    def __str__(self):
+        return self.name
