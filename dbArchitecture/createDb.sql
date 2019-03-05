@@ -9,7 +9,11 @@ CREATE TABLE `books` (
 	`genre_id` char(50) NOT NULL,
 	`publisher_id` int NOT NULL,
 	`price_new` int NOT NULL,
-	`price_used` int NOT NULL,
+	`price_used` int,
+	`price_ebook` int,
+	`rent_new` int,
+	`rent_used` int,
+	`rent_ebook` int,
 	PRIMARY KEY (`id`)
 );
 
@@ -39,8 +43,9 @@ CREATE TABLE `publishers` (
 
 CREATE TABLE `transactions` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`quantity` int NOT NULL,
+	`type` char(1) NOT NULL,
 	`book_state` char(1) NOT NULL,
+	`quantity` int NOT NULL,
 	`book_id` int NOT NULL,
 	PRIMARY KEY (`id`)
 );

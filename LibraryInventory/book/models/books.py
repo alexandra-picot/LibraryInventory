@@ -11,17 +11,26 @@ class Book(models.Model):
     # TODO: ISBN Validator
 
     isbn10 = models.CharField(max_length=20)
-    isbn13 = models.CharField(max_length=20, null=True)
+    isbn13 = models.CharField(max_length=20, null=True, blank=True)
     title = models.CharField(max_length=255)
     description = models.TextField(null=True)
-    language = models.ForeignKey(Language, on_delete=models.PROTECT)
-    release_date = models.DateTimeField()
+    authors = models.ManyToManyField(Author)
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT)
+    language = models.ForeignKey(Language, on_delete=models.PROTECT)
+    release_date = models.DateField()
     publisher = models.ForeignKey(Publisher, on_delete=models.PROTECT)
     price_new = models.IntegerField()
-    price_used = models.IntegerField(null=True)
-    authors = models.ManyToManyField(Author)
+    price_used = models.IntegerField(null=True, blank=True)
+    price_ebook = models.IntegerField(null=True, blank=True)
+    rent_new = models.IntegerField(null=True, blank=True)
+    rent_used = models.IntegerField(null=True, blank=True)
+    rent_ebook = models.IntegerField(null=True, blank=True)
 
     class Meta:
         db_table = 'books'
         unique_together = (('isbn10', 'isbn13'),)
+
+    def get_authors_string(self):
+        return ", ".join([str(author) for author in self.authors.all()])
+    get_authors_string.short_description = "Author(s)"
+
