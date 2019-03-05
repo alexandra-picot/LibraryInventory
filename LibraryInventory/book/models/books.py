@@ -5,8 +5,11 @@ from book.models.authors import Author
 from book.models.languages import Language
 
 
-# Create your models here.
 class Book(models.Model):
+    """
+    Class that correspond to the `books` SQL table.
+    This class contains all the information about one book, and useful methods
+    """
 
     # TODO: ISBN Validator
 
@@ -27,13 +30,27 @@ class Book(models.Model):
     rent_ebook = models.IntegerField(null=True, blank=True)
 
     class Meta:
+        """
+        Meta class used by Django if we need to override basic Django behaviors
+        """
+
+        # Override the table's name to the given one below
         db_table = 'books'
+
+        # Notify that the below attributes must be unique together
+        # Equivalent of UNIQUE (attribute1, attribute2) in SQL
         unique_together = (('isbn10', 'isbn13'),)
 
     def __str__(self):
+        """
+        :return: str, the book's title
+        """
         return self.title
 
     def get_authors_string(self):
+        """
+        :return: str, containing the names of all the authors separated by a comma
+        """
         return ", ".join([str(author) for author in self.authors.all()])
+    # Attribute of the above method that will be shown in the array displaying all the books
     get_authors_string.short_description = "Author(s)"
-
