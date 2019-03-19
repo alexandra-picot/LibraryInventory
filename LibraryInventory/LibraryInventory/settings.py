@@ -78,7 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'LibraryInventory',
-        'USER': 'root'
+        'USER': 'root',
+        'PASSWORD': 'Bieber!12345',
     }
 }
 
