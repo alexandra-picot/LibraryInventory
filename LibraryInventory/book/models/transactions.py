@@ -36,6 +36,11 @@ class Transaction(models.Model):
                                 (RENT, 'Rent'),
                                 (GET_BACK, 'Got back book from rent'),
                                 )
+    TRANSACTION_TYPE_CHOICES_DICT = {SELL: 'Sell',
+                                     DELIVERY: 'New Shipment',
+                                     RENT: 'Rent',
+                                     GET_BACK: 'Got back book from rent',
+    }
 
     # Create choices for the book's state
     # Those types will be the only choices the user has when selecting a book's state
@@ -61,9 +66,26 @@ class Transaction(models.Model):
         # Override the table's name to the given one below
         db_table = 'transactions'
 
-    # TODO: Test this method
+    # TODO: Test this method, handle EBOOK case
     def get_quantity_for_book(self, book_id, state=NEW):
+        """
+
+        :param book_id: the book of which we want to know the quantity left
+        :param state: NEW or USED, the quantity of book left with this state
+        :return: integer, the number of books left
+        """
         t = Transaction.objects.filter(book=book_id, book_state=state)
         a = t.filter(Q(type__exact=self.DELIVERY) | Q(type__exact=self.GET_BACK)).aggregate(sum=Sum('quantity'))
         b = t.filter(Q(type__exact=self.SELL) | Q(type__exact=self.RENT)).aggregate(sum=Sum('quantity'))
+        if not a['sum']:
+            return 0
+        elif not b['sum']:
+            return a['sum']
         return a['sum'] - b['sum']
+
+    def __str__(self):
+        """
+
+        :return:
+        """
+        return self.book.title + ", " + self.TRANSACTION_TYPE_CHOICES_DICT[self.type]
