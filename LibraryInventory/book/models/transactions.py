@@ -1,5 +1,8 @@
+from django.core.exceptions import ValidationError
 from django.db import models
+from django.db.models import Q, Sum
 from book.models.books import Book
+from book.ModelValidators import validate_nonzero
 
 
 class Transaction(models.Model):
@@ -7,6 +10,19 @@ class Transaction(models.Model):
     Class that correspond to the `transactions` SQL table.
     This class contains all the information about one book, and useful methods
     """
+
+    def clean(self):
+        """
+
+        :return:
+        """
+        if self.type == self.SELL or self.type == self.RENT:
+            book_left = self.get_quantity_for_book(self.book, self.book_state)
+            if book_left - self.quantity < 0:
+                raise ValidationError(message="There is not enough book available." +
+                                              "Quantity asked: %(quantity)d, Books left: %(left)d",
+                                      params={'quantity': self.quantity, 'left': book_left},)
+
 
     # Create choices for the transaction's type
     # Those types will be the only choices the user has when selecting a transaction's type
@@ -34,7 +50,7 @@ class Transaction(models.Model):
 
     type = models.CharField(max_length=1, choices=TRANSACTION_TYPE_CHOICES)
     book_state = models.CharField(max_length=1, choices=BOOK_STATE_CHOICES)
-    quantity = models.IntegerField()
+    quantity = models.IntegerField(validators=[validate_nonzero], help_text="Quantity must be greater than zero")
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class Meta:
@@ -44,3 +60,10 @@ class Transaction(models.Model):
 
         # Override the table's name to the given one below
         db_table = 'transactions'
+
+    # TODO: Test this method
+    def get_quantity_for_book(self, book_id, state=NEW):
+        t = Transaction.objects.filter(book=book_id, book_state=state)
+        a = t.filter(Q(type__exact=self.DELIVERY) | Q(type__exact=self.GET_BACK)).aggregate(sum=Sum('quantity'))
+        b = t.filter(Q(type__exact=self.SELL) | Q(type__exact=self.RENT)).aggregate(sum=Sum('quantity'))
+        return a['sum'] - b['sum']

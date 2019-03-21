@@ -55,7 +55,7 @@ ROOT_URLCONF = 'LibraryInventory.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'LibraryInventory',
         'USER': 'root',
-        'PASSWORD': 'Bieber!12345',
+        'PASSWORD': '',
     }
 }
 
