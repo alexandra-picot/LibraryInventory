@@ -1,5 +1,4 @@
 from django.test import TestCase
-from book.models import Book, Author, Genre, Language, Publisher
 from .utils import *
 
 

@@ -47,6 +47,7 @@ CREATE TABLE `transactions` (
 	`book_state` char(1) NOT NULL,
 	`quantity` int NOT NULL,
 	`book_id` int NOT NULL,
+	`date` DATETIME NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
