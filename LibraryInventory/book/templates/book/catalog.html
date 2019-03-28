@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Library Catalog</title>
-</head>
-<body>
-    <p> Hello World!</p>
-</body>
-</html>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'book/index.css' %}">
+
+{% if list_of_books %}
+    <ul>
+    {% for book in list_of_books %}
+        <li><a href="{% url 'book:catalog' book.id %}" >{{ book.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No books are available in the catalog.</p>
+{% endif %}
