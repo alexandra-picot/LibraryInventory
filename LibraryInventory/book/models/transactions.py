@@ -13,8 +13,11 @@ class Transaction(models.Model):
 
     def clean(self):
         """
+        Override method from Django class Model, this method is called before saving the data
+        into the database
+        This allows to do data verification on the whole model
 
-        :return:
+        :return: None, raise a ValidationError if the data isn't valid
         """
         if self.type == self.SELL or self.type == self.RENT:
             book_left = self.get_quantity_for_book(self.book, self.book_state)
@@ -22,7 +25,6 @@ class Transaction(models.Model):
                 raise ValidationError(message="There is not enough book available." +
                                               "Quantity asked: %(quantity)d, Books left: %(left)d",
                                       params={'quantity': self.quantity, 'left': book_left},)
-
 
     # Create choices for the transaction's type
     # Those types will be the only choices the user has when selecting a transaction's type
@@ -57,6 +59,7 @@ class Transaction(models.Model):
     book_state = models.CharField(max_length=1, choices=BOOK_STATE_CHOICES)
     quantity = models.IntegerField(validators=[validate_nonzero], help_text="Quantity must be greater than zero")
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    date = models.DateTimeField()
 
     class Meta:
         """
@@ -69,6 +72,7 @@ class Transaction(models.Model):
     # TODO: Test this method, handle EBOOK case
     def get_quantity_for_book(self, book_id, state=NEW):
         """
+        Return the quantity available of one book in the given state
 
         :param book_id: the book of which we want to know the quantity left
         :param state: NEW or USED, the quantity of book left with this state
@@ -85,7 +89,6 @@ class Transaction(models.Model):
 
     def __str__(self):
         """
-
-        :return:
+        :return: str, the transaction book's title and the type of transaction
         """
         return self.book.title + ", " + self.TRANSACTION_TYPE_CHOICES_DICT[self.type]
