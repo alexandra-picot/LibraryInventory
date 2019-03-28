@@ -25,6 +25,15 @@ class TransactionAdmin(admin.ModelAdmin):
 
     list_display_links = None
 
+    def has_change_permission(self, request, obj=None):
+        """
+        Remove the permission to change/edit a transaction for ALL the users
+
+        :param request: Unused
+        :param obj: Unused
+        :return: False, the permission
+        """
+        return False
 
 # Register the model to be shown in the admin interface
 admin.site.register(Transaction, TransactionAdmin)
