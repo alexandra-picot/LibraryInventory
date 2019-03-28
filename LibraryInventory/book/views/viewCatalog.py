@@ -7,6 +7,6 @@ class CatalogView(generic.ListView):
     context_object_name = 'list_of_books'
 
     def get_queryset(self):
-        "Return all books in catalog"
+        'Return all books in catalog'
 
         return Book.objects.all()
