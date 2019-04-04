@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% extends 'book/base_site.html' %}
 {% load static %}
 
@@ -10,7 +9,8 @@
     {% if list_of_books %}
         <ul>
             {% for book in list_of_books %}
-                <li><a href="{% url 'book:catalog' book.id %}" >{{ book.title }}</a></li>
+{#                {% url 'book:catalog' book.id %}#}
+                <li><a href="/" >{{ book.title }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
