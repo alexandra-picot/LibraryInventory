@@ -5,5 +5,6 @@ app_name = 'book'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('catalog/', views.CatalogView.as_view(), name='catalog')
+    path('catalog/', views.CatalogView.as_view(), name='catalog'),
+    path('about/', views.AboutView.as_view(), name='about')
 ]

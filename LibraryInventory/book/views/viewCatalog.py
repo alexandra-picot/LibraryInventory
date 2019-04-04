@@ -7,6 +7,7 @@ class CatalogView(generic.ListView):
     context_object_name = 'list_of_books'
 
     def get_queryset(self):
-        "Return all books in catalog"
-
+        """
+        :return: Return all books from database
+        """
         return Book.objects.all()

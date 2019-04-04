@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from bootstrap_customizer import urls as bootstrap_customizer_urls
 
 urlpatterns = [
     path('', include('book.urls')),
     path('admin/', admin.site.urls),
+    path('bootstrap_customizer/', include(bootstrap_customizer_urls)),
 ]
+
+
+# TODO: fork bootstrap customizer and edit it to be able to change the configuration from a .env file
