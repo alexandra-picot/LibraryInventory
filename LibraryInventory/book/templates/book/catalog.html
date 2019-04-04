@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 {% extends 'book/base_site.html' %}
 {% load static %}
 
 {% block title %}Library Catalog{% endblock %}
 
+{% block head_links %}<link rel="stylesheet" type="text/css" href="{% static 'book/index.css' %}">{% endblock %}
+
 {% block do_body %}
-    <p> Hello World!</p>
+    {% if list_of_books %}
+        <ul>
+            {% for book in list_of_books %}
+                <li><a href="{% url 'book:catalog' book.id %}" >{{ book.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books are available in the catalog.</p>
+    {% endif %}
 {% endblock %}

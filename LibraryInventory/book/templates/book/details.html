@@ -1,0 +1,20 @@
+<h1>{{ book.title}}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<label action="{% url 'book:details' book.id %}" >
+    <strong>Title: </strong> book.title
+    <strong>Author(s): </strong>book.authors
+    <strong>ISBN10: </strong> book.isbn10
+    <strong>Description: </strong> book.description
+    <strong>Genre: </strong> book.genre
+    <strong>Language: </strong> book.language
+    <strong>Release Date: </strong> book.release_date
+    <strong>Publisher: </strong>book.publisher
+    <strong>New Price: </strong> book.price_new
+    <strong>Used Price: </strong> book.price_used
+    <strong>e-Book Price: </strong> book.price_ebook
+    <strong>Rent New: </strong> book.rent_new
+    <strong>Rent Used: </strong>book.rent_used
+    <strong>Rent e-Book: </strong>book.rent_ebook
+</label>
