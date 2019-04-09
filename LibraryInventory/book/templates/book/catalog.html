@@ -1,13 +1,19 @@
+{% extends 'book/base_site.html' %}
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'book/index.css' %}">
+{% block title %}Library Catalog{% endblock %}
 
-{% if list_of_books %}
-    <ul>
-    {% for book in list_of_books %}
-        <li><a href="{% url 'book:catalog' book.id %}" >{{ book.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No books are available in the catalog.</p>
-{% endif %}
+{% block head_links %}<link rel="stylesheet" type="text/css" href="{% static 'book/index.css' %}">{% endblock %}
+
+{% block do_body %}
+    {% if list_of_books %}
+        <ul>
+            {% for book in list_of_books %}
+{#                {% url 'book:catalog' book.id %}#}
+                <li><a href="/" >{{ book.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books are available in the catalog.</p>
+    {% endif %}
+{% endblock %}

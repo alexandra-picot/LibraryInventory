@@ -1,45 +1,21 @@
-<!DOCTYPE html>
-
+{% extends 'book/base_site.html' %}
 {% load static %}
 
-<html lang = "en">
-<link rel="stylesheet" href={% static 'book/index.css' %}>
-<div id="wrapper">
-    </div>
-	<h1>Wayne State University Bookstore<br></h1>
+{#{% block head_links %}#}
+{#    <link rel="stylesheet" href={% static 'book/index.css' %}>#}
+{#{% endblock %}#}
 
-<body>
-	<nav>
-	<a href="index">Home </a>
-	<a href="catalog">Catalog </a>
-	<a href="details.html">Details </a>
-	<a href="Login.html">Login </a>
-	</nav>
-<div id = "homehero">
-</div>
-<main>
-	<h2>Get ready for the semester now!</h2>
-	<p> <span class = "book">Welcome to the Wayne State University Bookstore!<br></span> Browse through our wide ranged inventory of Textbooks, Novels, Magazines, and more. We keep track of all of your payments and refunds so you do not have to! </p>
-<ul>
-	<li>Easy to navigate inventory with intricate details.</li>
-	<li>A broad section of titles for adults and kids.</li>
-	<li>Dine at our indoor cafe and Starbucks.</li>
-	<li>Show warrior pride with our wide range of spirit wear.</li>
-</ul>
-<div>
-<p>
-	<span class = "book">WSU Bookstore</span><br>
-	82 West Warren Street <br>
-	Detroit, MI 48202 <br>
-	888-555-5555<br>
-</p>
-</div>
-</main>
-<footer>
-	<small>Email us for questions and concerns.</small><br>
-	<small><i>Copyright © 2019 Wayne State University</i> </small>
-	<br>
-	<a href="mailto:wsubooks@wayne.edu"\>Wayne State Bookstore</a>
-</footer>
-</body>
-</html>
+{% block title %}WSU Bookstore{% endblock %}
+
+{% block do_body %}
+    <main>
+        <h2>Get ready for the semester now!</h2>
+        <p> <span class = "book">Welcome to the Wayne State University Bookstore!<br></span> Browse through our wide ranged inventory of Textbooks, Novels, Magazines, and more. We keep track of all of your payments and refunds so you do not have to! </p>
+        <ul>
+            <li>Easy to navigate inventory with intricate details.</li>
+            <li>A broad section of titles for adults and kids.</li>
+            <li>Dine at our indoor cafe and Starbucks.</li>
+            <li>Show warrior pride with our wide range of spirit wear.</li>
+        </ul>
+    </main>
+{% endblock %}
