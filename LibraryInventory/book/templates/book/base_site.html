@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 {% load static %}
-{% load bootstrap_customizer %}<!doctype html>
 
 <html lang="en">
 <head>
@@ -11,17 +10,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- Your head content -->
-    <style lang="css">{% bootstrap_theme_css_above_the_fold %}</style>
-
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href={% static 'book/base_site.css' %}>
 
     {% block head_links %}{% endblock %}
 </head>
 <body>
-<!-- Your body content -->
-<link rel="stylesheet" type="text/css" href="{% bootstrap_theme_css_below_the_fold_url %}">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
