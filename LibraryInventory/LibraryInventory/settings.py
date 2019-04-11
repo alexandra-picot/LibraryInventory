@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'bootstrap_customizer',
     'book',
 ]
 
@@ -50,11 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.sites.middleware.CurrentSiteMiddleware',
-    'bootstrap_customizer.middleware.BootstrapThemeMiddleware',
 ]
-
-SITE_ID = 1
 
 ROOT_URLCONF = 'LibraryInventory.urls'
 
