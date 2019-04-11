@@ -3,16 +3,46 @@
 
 {% block title %}Library Catalog{% endblock %}
 
-{% block head_links %}<link rel="stylesheet" type="text/css" href="{% static 'book/index.css' %}">{% endblock %}
+{# {% block head_links %}<link rel="stylesheet" type="text/css" href="{% static 'book/catalogTable.css' %}">{% endblock %}} #}
 
 {% block do_body %}
     {% if list_of_books %}
-        <ul>
-            {% for book in list_of_books %}
+        <style>
+        table {
+        font-family: arial,"Arial Black";
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color:#BCC6CC;
+        }
+        </style>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+            </tr>
+                 {% for book in list_of_books %}
+                     <tr>
+                        <td><a href="/" >{{ book.title }}</a></td>
+                        <td>
+                            {% for author in book.authors.all %}
+                                {{ author }}
+                            {% endfor %}
+                         </td>
+                        <td>{{ book.genre }}</td>
+                     </tr>
 {#                {% url 'book:catalog' book.id %}#}
-                <li><a href="/" >{{ book.title }}</a></li>
-            {% endfor %}
-        </ul>
+                {% endfor %}
+        </table>
     {% else %}
         <p>No books are available in the catalog.</p>
     {% endif %}
