@@ -6,22 +6,24 @@
 {# {% block head_links %}<link rel="stylesheet" type="text/css" href="{% static 'book/catalogTable.css' %}">{% endblock %}} #}
 
 {% block do_body %}
-<h1>{{ book.title}}</h1>
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <h1>Book Details</h1>
+    {% if error_message %}
+       <p><strong>{{ error_message }}</strong></p>
+{% endif %}
     <label action="{% url 'book:details' book.id %}" >
-        <strong>Title: </strong> book.title
-        <strong>Author(s): </strong>book.authors
-        <strong>ISBN10: </strong> book.isbn10
-        <strong>Description: </strong> book.description
-        <strong>Genre: </strong> book.genre
-        <strong>Language: </strong> book.language
-        <strong>Release Date: </strong> book.release_date
-        <strong>Publisher: </strong>book.publisher
-        <strong>New Price: </strong> book.price_new
-        <strong>Used Price: </strong> book.price_used
-        <strong>e-Book Price: </strong> book.price_ebook
-        <strong>Rent New: </strong> book.rent_new
-        <strong>Rent Used: </strong>book.rent_used
-        <strong>Rent e-Book: </strong>book.rent_ebook
+        <strong>Title: </strong> {{ book.title  }}<br>
+        <strong>Author(s): </strong> {{ book.authors  }} <br>
+        <strong>ISBN10: </strong> {{ book.isbn10 }} <br>
+        <strong>Description: </strong>  {{ book.description }} <br>
+        <strong>Genre: </strong> {{ book.genre }} <br>
+        <strong>Language: </strong> {{  book.language }} <br>
+        <strong>Release Date: </strong> {{ book.release_date }} <br>
+        <strong>Publisher: </strong> {{ book.publisher }} <br>
+        <strong>New Price: </strong>$ {{ book.price_new }} <br>
+        <strong>Used Price: </strong> ${{ book.price_used }} <br>
+        <strong>e-Book Price: </strong>$ {{ book.price_ebook }} <br>
+        <strong>Rent New: </strong> ${{ book.rent_new }} <br>
+        <strong>Rent Used: </strong> ${{ book.rent_used  }}<br>
+        <strong>Rent e-Book: </strong> ${{ book.rent_ebook }} <br>
     </label>
 {% endblock %}
