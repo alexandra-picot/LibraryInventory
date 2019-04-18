@@ -9,7 +9,7 @@ from book.models.languages import Language
 # TODO: think to show the parent class during the presentation to talk about inheritance
 class Book(models.Model):
     """
-    Class that correspond to the `books` SQL table.
+    Class that corresponds to the `books` SQL table.
     This class contains all the information about one book, and useful methods
     """
 
