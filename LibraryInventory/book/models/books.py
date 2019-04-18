@@ -5,13 +5,15 @@ from book.models.authors import Author
 from book.models.languages import Language
 
 
+# TODO: try to put recursion somewhere, .... idk
+# TODO: think to show the parent class during the presentation to talk about inheritance
 class Book(models.Model):
     """
     Class that correspond to the `books` SQL table.
     This class contains all the information about one book, and useful methods
     """
 
-    # TODO: ISBN Validator
+    # TODO: ISBN Validator, try to put exception in that shit
 
     isbn10 = models.CharField(max_length=20, unique=True)
     isbn13 = models.CharField(max_length=20, unique=True, null=True, blank=True)
