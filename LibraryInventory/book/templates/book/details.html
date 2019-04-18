@@ -12,7 +12,7 @@
 {% endif %}
     <label action="{% url 'book:details' book.id %}" >
         <strong>Title: </strong> {{ book.title  }}<br>
-        <strong>Author(s): </strong> {{ book.authors  }} <br>
+        <strong>Author(s): </strong> {{ book.get_authors_string  }} <br>
         <strong>ISBN10: </strong> {{ book.isbn10 }} <br>
         <strong>Description: </strong>  {{ book.description }} <br>
         <strong>Genre: </strong> {{ book.genre }} <br>
