@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Contact Us</title>
-</head>
-<body>
+{% extends 'book/base_site.html' %}
+{% load static %}
 
-
-</body>
-</html>
+{% block title %}Contact Us{% endblock %}
+{% block do_body %}
+<h2>Questions? Concerns? Feel free to reach out!</h2>
+    <form method = "post" action = "/contact/thanks">{% csrf_token %}
+    <fieldset><legend>Contact Form</legend>
+    <label for = "myFName"> *First Name: </label>
+	    <input type = "text" name= "myFName" required = "required" id="myFName"/> <br>
+    <label for = "myLName"> *Last Name: </label>
+	    <input type = "text" name = "myLName" id="myLName"/> <br>
+    <label for = "myEmail"> *E-mail: </label>
+	    <input type = "email" name = "myEmail" required = "required" id="myEmail"> <br>
+    <label for = "myComments"> *Leave a comment or concern: </label>
+	    <textarea name = "myComments" required = "required" cols = "25" rows = "2"  id = "myComments"> </textarea>
+    <input type = "submit" value = "Submit" id = "mySubmit">
+    </fieldset>
+    </form>
+{% endblock %}
