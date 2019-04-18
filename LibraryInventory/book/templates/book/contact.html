@@ -3,8 +3,11 @@
 
 {% block title %}Contact Us{% endblock %}
 {% block do_body %}
-<h2>Questions? Concerns? Feel free to reach out!</h2>
-    <form method = "post" action = "/contact/thanks">{% csrf_token %}
+    {% if input_error %}
+        <font color = "red"> <h3><label>Error! Invalid Input.</label></h3></font>
+    {% endif %}
+    <h2>Questions? Concerns? Feel free to reach out!</h2>
+    <form method = "post" action = "/contact/">{% csrf_token %}
     <fieldset><legend>Contact Form</legend>
     <label for = "myFName"> *First Name: </label>
 	    <input type = "text" name= "myFName" required = "required" id="myFName"/> <br>
