@@ -14,8 +14,9 @@ ENV_KEY_VALUE_SEPARATOR = "="
 
 PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
 
-ordered_params = dict()
-try:
+
+def read_env_file():
+    res = dict()
     with open(PROJECT_PATH + "/.env", "r") as file:
         params = file.read().split(ENV_PARAM_SEPARATOR)  # type: List[str]
         params_dict = dict()  # type: Dict[str, str]
@@ -30,10 +31,20 @@ try:
             to_order.append(tmp[0])
         ordered_keys = merge(to_order, basic_compare)
         for key in ordered_keys:
-            ordered_params[key] = params_dict[key]
+            res[key] = params_dict[key]
+    return res
+
+
+def write_env_file(params: Dict):
     with open(PROJECT_PATH + "/.env", "w") as file:
-        for key, value in ordered_params.items():
+        for key, value in params.items():
             file.write("=".join([key, value]) + "\n")
+
+
+__ordered_params = dict()
+try:
+    __ordered_params = read_env_file()
+    write_env_file(__ordered_params)
 except FileNotFoundError as e:
     print(e)
 except PermissionError as e:
@@ -44,7 +55,7 @@ except KeyUnknownError as e:
 except Exception as e:
     print(e)
 
-ENVIRONMENT_PARAMS = ordered_params
+ENVIRONMENT_PARAMS = __ordered_params
 DB_NAME = ENVIRONMENT_PARAMS[DB_NAME_KEY]
 DB_USER = ENVIRONMENT_PARAMS[DB_USER_KEY]
 DB_PASSWORD = ENVIRONMENT_PARAMS[DB_PASSWORD_KEY]
