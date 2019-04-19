@@ -3,20 +3,17 @@ from book.models.publishers import Publisher
 from book.models.genres import Genre
 from book.models.authors import Author
 from book.models.languages import Language
+from book.ModelValidators import validate_nonzero, validate_isbn10, validate_isbn13
 
 
-# TODO: try to put recursion somewhere, .... idk
-# TODO: think to show the parent class during the presentation to talk about inheritance
 class Book(models.Model):
     """
     Class that corresponds to the `books` SQL table.
     This class contains all the information about one book, and useful methods
     """
 
-    # TODO: ISBN Validator, try to put exception in that shit
-
-    isbn10 = models.CharField(max_length=20, unique=True)
-    isbn13 = models.CharField(max_length=20, unique=True, null=True, blank=True)
+    isbn10 = models.CharField(max_length=20, unique=True, validators=[validate_isbn10])
+    isbn13 = models.CharField(max_length=20, unique=True, null=True, blank=True, validators=[validate_isbn13])
     title = models.CharField(max_length=255)
     description = models.TextField(null=True)
     authors = models.ManyToManyField(Author)
@@ -24,12 +21,12 @@ class Book(models.Model):
     language = models.ForeignKey(Language, on_delete=models.PROTECT)
     release_date = models.DateField(help_text='Please use the following format: <em>YYYY-MM-DD</em>')
     publisher = models.ForeignKey(Publisher, on_delete=models.PROTECT)
-    price_new = models.IntegerField()
-    price_used = models.IntegerField(null=True, blank=True)
-    price_ebook = models.IntegerField(null=True, blank=True)
-    rent_new = models.IntegerField(null=True, blank=True)
-    rent_used = models.IntegerField(null=True, blank=True)
-    rent_ebook = models.IntegerField(null=True, blank=True)
+    price_new = models.IntegerField(validators=[validate_nonzero])
+    price_used = models.IntegerField(null=True, blank=True, validators=[validate_nonzero])
+    price_ebook = models.IntegerField(null=True, blank=True, validators=[validate_nonzero])
+    rent_new = models.IntegerField(null=True, blank=True, validators=[validate_nonzero])
+    rent_used = models.IntegerField(null=True, blank=True, validators=[validate_nonzero])
+    rent_ebook = models.IntegerField(null=True, blank=True, validators=[validate_nonzero])
 
     class Meta:
         """
