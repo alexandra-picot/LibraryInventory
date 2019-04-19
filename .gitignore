@@ -5,3 +5,4 @@ LibraryInventory/.idea
 __pycache__
 LibraryInventory/venv/
 TestDjango/testProject/venv/
+.env
