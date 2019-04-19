@@ -71,15 +71,11 @@ class BookAdmin(admin.ModelAdmin):
 
     inlines = [TransactionInLine]
 
-    # def get_formsets_with_inlines(self, request, obj=None):
-    #     for line in self.get_inline_instances(request, obj):
-    #         print(line.model.type)
-    #         yield line.get_formset(request, obj), line
-    #
-    # def formfield_for_foreignkey(self, db_field, request, **kwargs):
-    #     if db_field.name == "transaction":
-    #         kwargs["queryset"] = Transaction.objects.all().order_by('date')
-    #     return super().formfield_for_foreignkey(db_field, request, **kwargs)
+    def add_view(self, request, form_url='', extra_context=None):
+        self.readonly_fields = []
+        return super().add_view(
+            request, form_url, extra_context
+        )
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         self.readonly_fields = ['isbn10', 'isbn13', 'authors', 'language', 'release_date', 'title', 'publisher']
