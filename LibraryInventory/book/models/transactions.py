@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q, Sum
 from book.models.books import Book
-from book.ModelValidators import validate_nonzero
+from book.utils.ModelValidators import validate_nonzero
 
 
 class Transaction(models.Model):

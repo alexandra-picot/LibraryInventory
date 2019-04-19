@@ -3,7 +3,7 @@ from book.models.publishers import Publisher
 from book.models.genres import Genre
 from book.models.authors import Author
 from book.models.languages import Language
-from book.ModelValidators import validate_nonzero, validate_isbn10, validate_isbn13
+from book.utils.ModelValidators import validate_nonzero, validate_isbn10, validate_isbn13
 
 
 class Book(models.Model):
