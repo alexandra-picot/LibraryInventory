@@ -32,6 +32,10 @@ This is a school project having for goal to simulate an university bookstore.
 
    - Go to: http://127.0.0.1:8000/admin/ for the admin site
     
+   - Before going to the user site, go to the admin site and create a bootstrap theme and link it to the user site url (Examples in the django-bootstrap-customizer documentation)
+   
+   - Check the id in the table `django-site` of the user site you linked above. In `settings.py` change `SITE_ID` with this id.
+    
    - Go to: http://127.0.0.1:8000 for the user site
 
    - You're all set, have fun!
