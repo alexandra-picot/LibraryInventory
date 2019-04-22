@@ -22,7 +22,7 @@ This is a school project having for goal to simulate an university bookstore.
 
    - Install `django-bootstrap-customizer` 0.1.4 or higher https://johnfraney.github.io/django-bootstrap-customizer/
 
-   - Be sure to be in the root folder of the project before doing the folowing commands
+   - Be sure to be in the root folder of the project before doing the following commands
     
    - run `python3 manage.py migrate`
     
